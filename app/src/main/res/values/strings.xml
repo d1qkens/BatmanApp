@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">OnixTestingApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="batman_splash_screen">batman splash screen</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_dialog_btn">Back</string>
+    <string name="sign_up_dialog_btn">Create account</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_tests_list">TestsList</string>
+    <string name="account_created">Account created you can login now</string>
+    <string name="empty_field">Empty Field</string>
+    <string name="pass_error">Password does not match</string>
+    <string name="login_error">Login or Password does not match</string>
+    <string name="title_activity_question">QuestionActivity</string>
+    <string name="title_activity_list_items">Bat Mobiles Archive</string>
+    <string name="title_activity_coin_flip_animation">CoinToss</string>
+</resources>
