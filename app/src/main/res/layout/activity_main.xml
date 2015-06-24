@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/login_fragment"
-        android:name="com.d1qkens.onixtestingapp.RegistrationFragment"
+        android:name="com.d1qkens.onixtestingapp.Fragments.RegistrationFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

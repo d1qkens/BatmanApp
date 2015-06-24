@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import com.d1qkens.onixtestingapp.Utils.SaveSharedPreferences;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -65,8 +66,6 @@ public class SplashActivity extends Activity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-                        Log.d("TAG", ("restart" + SaveSharedPreferences.getUserName(SplashActivity.this)));
                         Intent intent = new Intent(SplashActivity.this, ListItemsActivity.class);
                         intent.putStringArrayListExtra(IMAGES, carsList);
                         intent.putStringArrayListExtra(TITLES, titlesList);

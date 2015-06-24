@@ -4,15 +4,15 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
 
-public class CoinFlipAnimationActivity extends ActionBarActivity {
+public class FlipSignActivity extends Activity {
 
     private boolean mIsHeads;
     private AnimatorSet mFlipper;
@@ -24,7 +24,7 @@ public class CoinFlipAnimationActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coin_flip_animation);
 
-        mHeadsImage = BitmapFactory.decodeResource(getResources(), R.drawable.batmanlogovsjoker);
+        mHeadsImage = BitmapFactory.decodeResource(getResources(), R.drawable.batmansign);
         mTailsImage = BitmapFactory.decodeResource(getResources(), R.drawable.jokersign);
 
         mFlipImage = (ImageView) findViewById(R.id.flip_image);

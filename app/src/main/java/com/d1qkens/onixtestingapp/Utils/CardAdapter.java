@@ -1,4 +1,4 @@
-package com.d1qkens.onixtestingapp;
+package com.d1qkens.onixtestingapp.Utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.d1qkens.onixtestingapp.FlipSignActivity;
+import com.d1qkens.onixtestingapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(activity, CoinFlipAnimationActivity.class);
+                    Intent intent = new Intent(activity, FlipSignActivity.class);
                     activity.startActivity(intent);
                 }
             });

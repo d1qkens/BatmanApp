@@ -1,4 +1,4 @@
-package com.d1qkens.onixtestingapp;
+package com.d1qkens.onixtestingapp.Utils;
 
 
 import android.content.Context;
