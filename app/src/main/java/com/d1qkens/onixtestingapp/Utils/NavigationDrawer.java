@@ -25,9 +25,10 @@ public class NavigationDrawer {
     public static void wrapWithNavigationDrawer(final Activity activity) {
         new DrawerBuilder().withActivity(activity)
                 .withActionBarDrawerToggle(true)
+                .withHeader(R.layout.drawer_header)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.batman).withIcon(R.drawable.batmansign),
-                        new PrimaryDrawerItem().withName(R.string.joker).withIcon(R.drawable.jokersign),
+                        new PrimaryDrawerItem().withName(R.string.batman).withIcon(R.drawable.batmanmenusketch),
+                        new PrimaryDrawerItem().withName(R.string.joker).withIcon(R.drawable.jokermenubigger),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.drawer_settings).withIcon(FontAwesome.Icon.faw_cog),
                         new SecondaryDrawerItem().withName(R.string.drawer_logout).withIcon(FontAwesome.Icon.faw_sign_out))

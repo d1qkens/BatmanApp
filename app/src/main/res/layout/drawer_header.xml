@@ -5,4 +5,4 @@
     android:adjustViewBounds="true"
     android:orientation="vertical"
     android:scaleType="center"
-    android:src="@drawable/drawerjoker"/>
+    android:src="@drawable/batmanmenu"/>

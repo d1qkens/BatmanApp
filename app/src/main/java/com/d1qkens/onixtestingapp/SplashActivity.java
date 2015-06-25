@@ -5,15 +5,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
+import com.d1qkens.onixtestingapp.Utils.ParseJson;
 import com.d1qkens.onixtestingapp.Utils.SaveSharedPreferences;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -52,29 +50,20 @@ public class SplashActivity extends Activity {
                 client.get(URL, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        try {
-                            JSONArray imagesArr = response.getJSONArray("images");
-                            carsList = new ArrayList<>();
-                            for (int i = 0; i < imagesArr.length(); i++) {
-                                carsList.add(imagesArr.getString(i));
-                            }
-                            JSONArray titlesArr = response.getJSONArray("titles");
-                            titlesList = new ArrayList<>();
-                            for (int i = 0; i < titlesArr.length(); i++) {
-                                titlesList.add(titlesArr.getString(i));
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        carsList = ParseJson.getCars(response);
+                        titlesList = ParseJson.getTitles(response);
+
                         Intent intent = new Intent(SplashActivity.this, ListItemsActivity.class);
                         intent.putStringArrayListExtra(IMAGES, carsList);
                         intent.putStringArrayListExtra(TITLES, titlesList);
                         startActivity(intent);
                     }
                 });
-
             }
+
+
         }
     }
 }
+
 

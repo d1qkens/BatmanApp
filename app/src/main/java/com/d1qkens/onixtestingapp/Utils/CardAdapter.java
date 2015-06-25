@@ -46,7 +46,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         }
 
         public void setImage(String imagePath, Context context) {
-            Picasso.with(context).load(imagePath).error(R.drawable.middledrawerjoker).fit().into(mImage);
+            Picasso.with(context).load(imagePath).error(R.drawable.jokersign).fit().into(mImage);
         }
 
     }

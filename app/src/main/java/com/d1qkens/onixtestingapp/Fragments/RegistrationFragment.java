@@ -13,13 +13,12 @@ import android.widget.Toast;
 
 import com.d1qkens.onixtestingapp.ListItemsActivity;
 import com.d1qkens.onixtestingapp.R;
+import com.d1qkens.onixtestingapp.Utils.ParseJson;
 import com.d1qkens.onixtestingapp.Utils.SaveSharedPreferences;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -64,43 +63,17 @@ public class RegistrationFragment extends Fragment {
                 if (loginUsername.matches("") || passwordText.matches("")) {
                     Toast.makeText(getActivity(), R.string.empty_field, Toast.LENGTH_SHORT).show();
                 } else {
-
                     SaveSharedPreferences.setUserName(getActivity(), loginUsername);
                     AsyncHttpClient client = new AsyncHttpClient();
                     client.get(URL, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            try {
-                                JSONArray imagesArr = response.getJSONArray("images");
-                                carsList = new ArrayList<>();
-                                for (int i = 0; i < imagesArr.length(); i++) {
-                                    carsList.add(imagesArr.getString(i));
-                                }
-                                JSONArray titlesArr = response.getJSONArray("titles");
-                                titlesList = new ArrayList<>();
-                                for (int i = 0; i < titlesArr.length(); i++) {
-                                    titlesList.add(titlesArr.getString(i));
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                            carsList = ParseJson.getCars(response);
+                            titlesList = ParseJson.getTitles(response);
 
                             Intent intent = new Intent(getActivity(), ListItemsActivity.class);
                             intent.putStringArrayListExtra(IMAGES, carsList);
                             intent.putStringArrayListExtra(TITLES, titlesList);
-                            startActivity(intent);
-                        }
-
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                            Toast.makeText(getActivity(), "Connection Failed", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getActivity(), ListItemsActivity.class);
-                            ArrayList<String> failed = new ArrayList<>();
-                            for (int i = 0; i < 5; i++) {
-                                failed.add("" + i + "");
-                            }
-                            intent.putStringArrayListExtra(IMAGES, failed);
-                            intent.putStringArrayListExtra(TITLES, failed);
                             startActivity(intent);
                         }
                     });
